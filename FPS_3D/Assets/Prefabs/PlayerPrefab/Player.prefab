@@ -236,6 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5760045868186991117}
   - component: {fileID: 5760045868186991118}
+  - component: {fileID: 7550984512234081970}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -276,6 +277,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7550984512234081970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760045868186991119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f5f82477652e74b87a52fbaf24566b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpForce: 10
 --- !u!1001 &664953727907650669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: 2bd6bf150a6e08645964bd2baf2a789b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100030, guid: 2bd6bf150a6e08645964bd2baf2a789b, type: 3}
       propertyPath: m_Layer
@@ -1319,7 +1334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100048, guid: 9ba50ff5806385f4da160695a7223e1d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100050, guid: 9ba50ff5806385f4da160695a7223e1d, type: 3}
       propertyPath: m_Layer
