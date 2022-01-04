@@ -280,26 +280,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
-      propertyPath: footstepClip.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
-      propertyPath: footstepClip.Array.data[0]
+    - target: {fileID: 4066822627483143151, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
+      propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 8300000, guid: 2429399f1ca311945a12f37a32c14aed, type: 3}
-    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
-      propertyPath: footstepClip.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: f0761d807b3ae1d4598a50357cb58a5e, type: 3}
-    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
-      propertyPath: footstepClip.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: f27be18648dcceb46a46397f5c4c2e62, type: 3}
-    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
-      propertyPath: footstepClip.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 3005916a05630f2439d211eaa6faba3d, type: 3}
+      objectReference: {fileID: 9100000, guid: 4da863b04d4bc9644bfb7d89f42836cc, type: 2}
     - target: {fileID: 5760045868186991117, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
       propertyPath: m_RootOrder
       value: 2
