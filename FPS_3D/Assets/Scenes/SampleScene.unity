@@ -273,26 +273,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa7bf25b446c4baa8e0af352f470d1b, type: 3}
---- !u!1 &1780505492 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5760045868186991119, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
-  m_PrefabInstance: {fileID: 5760045866674921883}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1780505496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780505492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fd408aa9e8d2c44ebc253c529cec5c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprintSpeed: 10
-  moveSpeed: 5
-  crouchSpeed: 2
 --- !u!1001 &5760045866674921883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -300,6 +280,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
+      propertyPath: footstepClip.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
+      propertyPath: footstepClip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2429399f1ca311945a12f37a32c14aed, type: 3}
+    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
+      propertyPath: footstepClip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f0761d807b3ae1d4598a50357cb58a5e, type: 3}
+    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
+      propertyPath: footstepClip.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f27be18648dcceb46a46397f5c4c2e62, type: 3}
+    - target: {fileID: 5706022407578736496, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
+      propertyPath: footstepClip.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3005916a05630f2439d211eaa6faba3d, type: 3}
     - target: {fileID: 5760045868186991117, guid: 6c84bb4dd81987f4db38c001560793bc, type: 3}
       propertyPath: m_RootOrder
       value: 2
