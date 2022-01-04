@@ -62,12 +62,12 @@ public class PlayerFootsteps : MonoBehaviour
                 accumulatedDistance = 0f;
 
             }
-
-            else
-            {
-                accumulatedDistance = 0f;
-            }
         }
+        else
+        {
+            accumulatedDistance = 0f;
+        }
+        
 
     }
 }
