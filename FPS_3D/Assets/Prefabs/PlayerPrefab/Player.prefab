@@ -202,6 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5760045867799666856}
+  - component: {fileID: 4918371213477831080}
   m_Layer: 0
   m_Name: LookRoot
   m_TagString: Untagged
@@ -226,6 +227,30 @@ Transform:
   m_Father: {fileID: 5760045868186991117}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4918371213477831080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760045867799666857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbd3226079b3664da68346ce0784b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRoot: {fileID: 5760045868186991117}
+  lookRoot: {fileID: 5760045867799666856}
+  invert: 0
+  canUnlock: 1
+  sensitivity: 5
+  smoothSteps: 10
+  smoothWeight: 0.4
+  rollAngle: 0
+  rollSpeed: 3
+  defaultLookLimits: {x: -70, y: 80}
+  mouseX: 0
+  mouseY: 0
 --- !u!1 &5760045868186991119
 GameObject:
   m_ObjectHideFlags: 0
