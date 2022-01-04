@@ -35,7 +35,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
     }
 
-    private void Start()
+    void Start()
     {
         WalkStepDefault();
         //playerFootsteps.stepDistance = walkStepDistance;
@@ -43,7 +43,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         //playerFootsteps.volumeMax = walkVolumeMax;
     }
 
-    private void WalkStepDefault()
+    void WalkStepDefault()
     {
         playerFootsteps.stepDistance = walkStepDistance;
         playerFootsteps.volumeMin = walkVolumeMin;
@@ -57,7 +57,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         Crouch();
     }
 
-    private void Crouch()
+    void Crouch()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -93,7 +93,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         }
     }
 
-    private void Sprint()
+    void Sprint()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching)
         {

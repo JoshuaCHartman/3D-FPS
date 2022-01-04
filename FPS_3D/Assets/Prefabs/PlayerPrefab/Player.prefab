@@ -480,6 +480,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3005916a05630f2439d211eaa6faba3d, type: 3}
   volumeMin: 0
   volumeMax: 0
+  accumulatedDistance: 0
   stepDistance: 0
 --- !u!1001 &664953727907650669
 PrefabInstance:

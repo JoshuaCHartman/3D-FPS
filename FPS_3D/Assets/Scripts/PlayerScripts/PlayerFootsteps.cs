@@ -16,7 +16,7 @@ public class PlayerFootsteps : MonoBehaviour
     /*[HideInInspector]*/
     public float volumeMin, volumeMax;
 
-    public float accumulatedDistance; //how far move before play sound
+    [SerializeField] private float accumulatedDistance; //how far move before play sound
     /*[HideInInspector]*/
     public float stepDistance;
 
@@ -36,7 +36,7 @@ public class PlayerFootsteps : MonoBehaviour
         CheckToPlayFootstepSound();
     }
 
-    private void CheckToPlayFootstepSound()
+    void CheckToPlayFootstepSound()
     {
         if (!characterController.isGrounded)
             return;
@@ -44,7 +44,7 @@ public class PlayerFootsteps : MonoBehaviour
         if (characterController.velocity.sqrMagnitude > 0) // if any value of the vector3 (x,y,z) >0
         {
             //accumulatedDistance = how far to move (step,walk,sprint,moving crouch) until play step sound
-            accumulatedDistance += Time.deltaTime;
+            accumulatedDistance +=( Time.deltaTime);
 
             if (accumulatedDistance > stepDistance)
             {
@@ -59,7 +59,7 @@ public class PlayerFootsteps : MonoBehaviour
 
                 accumulatedDistance = 0f;
 
-            }
+    }
 
             else
             {
