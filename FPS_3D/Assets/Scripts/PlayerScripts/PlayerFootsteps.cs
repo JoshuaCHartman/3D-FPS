@@ -17,6 +17,7 @@ public class PlayerFootsteps : MonoBehaviour
     public float volumeMin, volumeMax;
 
     [SerializeField] private float accumulatedDistance; //how far move before play sound
+    
     /*[HideInInspector]*/
     public float stepDistance;
 
@@ -44,7 +45,7 @@ public class PlayerFootsteps : MonoBehaviour
         if (characterController.velocity.sqrMagnitude > 0) // if any value of the vector3 (x,y,z) >0
         {
             //accumulatedDistance = how far to move (step,walk,sprint,moving crouch) until play step sound
-            accumulatedDistance +=( Time.deltaTime);
+            accumulatedDistance += (Time.deltaTime);
 
             if (accumulatedDistance > stepDistance)
             {
@@ -52,14 +53,15 @@ public class PlayerFootsteps : MonoBehaviour
 
                 //randomClip = footstepClip[Random.Range(0, footstepClip.Length)];
                 //footstepSound.clip = randomClip;
-                footstepSound.clip = footstepClip[Random.Range(0, footstepClip.Length)]; // random range selection to pick clip in the array. Int range is incluse of x, exclusive of y. Float is inclusive
 
                 footstepSound.volume = UnityEngine.Random.Range(volumeMin, volumeMax);
+                footstepSound.clip = footstepClip[Random.Range(0, footstepClip.Length)]; // random range selection to pick clip in the array. Int range is incluse of x, exclusive of y. Float is inclusive
+
                 footstepSound.Play();
 
                 accumulatedDistance = 0f;
 
-    }
+            }
 
             else
             {
