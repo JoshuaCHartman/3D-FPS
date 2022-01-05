@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public enum WeaponAim { NONE, SELF_AIM, AIM }
 public enum WeaponFireType { SINGLE, MULTIPLE }
 public enum WeaponBulletType { BULLET, ARROW, SPEAR, NONE }
@@ -9,6 +8,8 @@ public enum WeaponBulletType { BULLET, ARROW, SPEAR, NONE }
 
 public class WeaponHandler : MonoBehaviour
 {
+    // Weapon ANIMATIONS & SOUNDS
+
     private Animator anim;
 
     public WeaponAim weaponAim;
