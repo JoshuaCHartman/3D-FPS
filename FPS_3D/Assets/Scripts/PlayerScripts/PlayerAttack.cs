@@ -7,14 +7,36 @@ public class PlayerAttack : MonoBehaviour
 {
     private WeaponManager weaponManager;
 
+    // fire rate 
     public float fireRate =15f;
     private float nextTimeToFire;
+    // default damage
     public float damage = 20f;
+    
+    // zoom  & aim
+    [SerializeField] private Animator zoomCameraAnim; // showing in inspector to verify data flow : is present
+    private bool zoomed;
+    private Camera mainCam;
+    private GameObject crosshair;
+    private bool isAiming;
+
+    [SerializeField]  private GameObject findFPCamera; // showing in inspector to verify data flow : is present
+
 
     private void Awake()
     {
         weaponManager = GetComponent<WeaponManager>(); // WeaponManager script component on Player. Holds weapon choice/index
 
+        // get zoom camera animator - find Look_Root, then find Zoom_Camera inside it, get the animator component
+        //zoomCameraAnim = transform.Find("Look Root").transform.Find("FP Camera").GetComponent<Animator>();
+        //zoomCameraAnim = GetComponentInChildren<Animator>();
+        
+        findFPCamera = GameObject.Find(Tags.ZOOM_CAMERA);
+        zoomCameraAnim = findFPCamera.GetComponent<Animator>();
+
+        crosshair = GameObject.FindGameObjectWithTag(Tags.CROSSHAIR);
+
+        mainCam = Camera.main;
 
     }
 
@@ -22,13 +44,14 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         WeaponShoot();
+        ZoomInAndOut();
     }
 
     void WeaponShoot()
@@ -72,13 +95,61 @@ public class PlayerAttack : MonoBehaviour
                 // spear & arrow handler
                 else 
                 {
+                    if (isAiming) // isAiming set in ZoominAndOut() after testing if selected weapon has Self_Aim tag
+                    {
+                        weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
+
+                        if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.ARROW)
+                        {
+                            // shoot arrow
+                        }
+                        else if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.SPEAR)
+                        {
+                            // throw spear
+                        }
+                    }
 
                 }
-                
+            }
+        }
+    }
+
+    void ZoomInAndOut()
+    {
+        // test if selected weapon has Weapon Aim "AIM" tag
+        if (weaponManager.GetCurrentSelectedWeapon().weaponAim == WeaponAim.AIM)
+        {
+            if (Input.GetMouseButtonDown(1)) // HOLD down RIGHT mouse button
+            {
+                // play zoom in animation
+                zoomCameraAnim.Play(AnimationTags.ZOOM_IN_ANIM);
+                // turn off crosshair
+                crosshair.SetActive(false);
+            }
+            if (Input.GetMouseButtonUp(1)) // RELEASE RIGHT mouse button
+            {
+                // play zoom out animation
+                zoomCameraAnim.Play(AnimationTags.ZOOM_OUT_ANIM);
+                // turn on crosshair
+                crosshair.SetActive(true);
+            }
+        }
+        // test if selected weapon has Weapon Aim "SELF_AIM" tag
+        if (weaponManager.GetCurrentSelectedWeapon().weaponAim == WeaponAim.SELF_AIM)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                weaponManager.GetCurrentSelectedWeapon().Aim(true); // set bool Aim to true to cue AIM animation state
+                isAiming = true;
+
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                weaponManager.GetCurrentSelectedWeapon().Aim(false); 
+                isAiming = false;
 
             }
         }
-
     }
 
     private void BulletFired()
