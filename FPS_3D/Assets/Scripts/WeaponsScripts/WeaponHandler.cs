@@ -8,9 +8,9 @@ public enum WeaponBulletType { BULLET, ARROW, SPEAR, NONE }
 
 public class WeaponHandler : MonoBehaviour
 {
-    // Weapon ANIMATIONS & SOUNDS
+    // Weapon ANIMATIONS & SOUNDS - Script component is ON EACH WEAPON
 
-    private Animator anim;
+    [SerializeField] private Animator anim;
 
     public WeaponAim weaponAim;
 
@@ -63,17 +63,6 @@ public class WeaponHandler : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
 

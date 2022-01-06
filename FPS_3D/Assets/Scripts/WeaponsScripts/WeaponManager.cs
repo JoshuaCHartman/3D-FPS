@@ -6,14 +6,14 @@ public class WeaponManager : MonoBehaviour
 {
     // Select /switch different weapons
 
-    [SerializeField] private WeaponHandler[] weapons; // hold weapons on player - currently 6. uses WeaponHandler script
+    [SerializeField] private WeaponHandler[] weapons; // hold weapons on player - currently 6. uses WeaponHandler script w/ anim & sounds
 
     private int currentWeaponIndex;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentWeaponIndex = 0;
+        currentWeaponIndex = 0; // will make default weapon 0 slot - currently axe 
         weapons[currentWeaponIndex].gameObject.SetActive(true);
 
     }
@@ -21,7 +21,7 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // make switch case
+        // make switch case?
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -62,7 +62,7 @@ public class WeaponManager : MonoBehaviour
         currentWeaponIndex = weaponIndex;   // set/store new current weapon index to the passed int
     }
 
-    public WeaponHandler GetCurrentSelectedWeapon()
+    public WeaponHandler GetCurrentSelectedWeapon() // used in PlayerAttack script
     {
         return weapons[currentWeaponIndex];
     }
