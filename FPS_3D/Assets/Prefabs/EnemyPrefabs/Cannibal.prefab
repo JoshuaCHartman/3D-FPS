@@ -1739,11 +1739,11 @@ GameObject:
   - component: {fileID: 1103834917032677473}
   m_Layer: 0
   m_Name: Cannibal
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8883552421144168786
 Transform:
   m_ObjectHideFlags: 0
