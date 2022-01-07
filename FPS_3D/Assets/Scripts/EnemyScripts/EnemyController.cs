@@ -79,8 +79,26 @@ public class EnemyController : MonoBehaviour
         if (_patrolTimer > patrolForThisTime)
         {
             SetNewRandomDestination();
-            _patrolTimer = 0f;
+            _patrolTimer = 0f; // reset timer so will continue to loop through new points
+
         }
+
+        if (_navAgent.velocity.sqrMagnitude > 0) // if enemy moving
+        {
+            _enemyAnim.Walk(true);
+        }
+        else
+        {
+            _enemyAnim.Walk(false);
+        }
+
+        // test chase distance = enemy position - player position
+        if (Vector3.Distance(transform.position, _targetTF.position) <= chaseDistance)
+        {
+
+        }
+
+
     }
 
     void SetNewRandomDestination()
