@@ -7,7 +7,7 @@ public class MouseLook : MonoBehaviour
 {
     [SerializeField] private Transform playerRoot, lookRoot; // in inspector drop Player and LookRoot objects onto these variables
                                                              // Transform = postion, rotation, scale of an object
-                                                             // playerRoot = y axis / lookRoot = x axis
+                                                             // playerRoot = y axis / _lookRoot = x axis
     [SerializeField] private bool invert;
 
     [SerializeField] private bool canUnlock = true; // mouse cursor, ESC can lock/unlock cursor

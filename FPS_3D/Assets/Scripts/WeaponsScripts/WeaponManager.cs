@@ -6,15 +6,15 @@ public class WeaponManager : MonoBehaviour
 {
     // Select /switch different weapons
 
-    [SerializeField] private WeaponHandler[] weapons; // hold weapons on player - currently 6. uses WeaponHandler script w/ anim & sounds
+    [SerializeField] private WeaponHandler[] _weapons; // hold weapons on player - currently 6. uses WeaponHandler script w/ _anim & sounds
 
-    private int currentWeaponIndex;
+    private int _currentWeaponIndex;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentWeaponIndex = 0; // will make default weapon 0 slot - currently axe 
-        weapons[currentWeaponIndex].gameObject.SetActive(true);
+        _currentWeaponIndex = 0; // will make default weapon 0 slot - currently axe 
+        _weapons[_currentWeaponIndex].gameObject.SetActive(true);
 
     }
 
@@ -53,18 +53,18 @@ public class WeaponManager : MonoBehaviour
     void TurnOnSelectedWeapon(int weaponIndex)
     {
         // handling to prevent redraw same weapon
-        if (currentWeaponIndex == weaponIndex)
+        if (_currentWeaponIndex == weaponIndex)
             return;
 
         // turn off weapon/false, turn on/true selected weapon by index, assign index to current weapon
-        weapons[currentWeaponIndex].gameObject.SetActive(false); // turn off/false current weapon by index number
-        weapons[weaponIndex].gameObject.SetActive(true); // turn on/true weapon corresponding to passed int
-        currentWeaponIndex = weaponIndex;   // set/store new current weapon index to the passed int
+        _weapons[_currentWeaponIndex].gameObject.SetActive(false); // turn off/false current weapon by index number
+        _weapons[weaponIndex].gameObject.SetActive(true); // turn on/true weapon corresponding to passed int
+        _currentWeaponIndex = weaponIndex;   // set/store new current weapon index to the passed int
     }
 
     public WeaponHandler GetCurrentSelectedWeapon() // used in PlayerAttack script
     {
-        return weapons[currentWeaponIndex];
+        return _weapons[_currentWeaponIndex];
     }
 
 }

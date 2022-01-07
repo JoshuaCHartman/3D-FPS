@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowSpearScript : MonoBehaviour
 {
-    private Rigidbody myBody;
+    private Rigidbody _myBody;
 
     public float speed = 30f;
     public float deactivateTimer = 3f;
@@ -12,7 +12,7 @@ public class ArrowSpearScript : MonoBehaviour
 
     private void Awake()
     {
-        myBody = GetComponent<Rigidbody>();
+        _myBody = GetComponent<Rigidbody>();
 
     }
 
@@ -39,9 +39,9 @@ public class ArrowSpearScript : MonoBehaviour
     public void Launch(Camera mainCamera)
     {
         //myBody.velocity = Camera.main.transform.forward * speed;
-        myBody.velocity = mainCamera.transform.forward * speed; // move foward from main camera
+        _myBody.velocity = mainCamera.transform.forward * speed; // move foward from main camera
         // velocity adds forwards momentum faster than using AddForce physics method
-        transform.LookAt(transform.position + myBody.velocity); // rotates gameObject to align correctly forward
+        transform.LookAt(transform.position + _myBody.velocity); // rotates gameObject to align correctly forward
                                                                 // & then move it with the velocity on rigidbody
 
     }

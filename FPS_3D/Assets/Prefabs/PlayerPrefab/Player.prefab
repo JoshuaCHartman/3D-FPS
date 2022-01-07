@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 385287372}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac7c335e13fa2145b5a0d3c0ffd60cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
+  _weapons:
   - {fileID: 7455680223800625114}
   - {fileID: 5043188323598723645}
   - {fileID: 3757759277664102073}
@@ -419,11 +419,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 15
   damage: 20
-  zoomCameraAnim: {fileID: 0}
-  findFPCamera: {fileID: 0}
-  arrowPrefab: {fileID: 8990933584744301290, guid: 7a92b5da37194c749962cfce763ad611, type: 3}
-  spearPrefab: {fileID: 1630389516478240849, guid: 4ecad7efeee571c4b870c43321e34833, type: 3}
-  arrowSpearStartPosition: {fileID: 5747085096949611088}
+  _zoomCameraAnim: {fileID: 0}
+  _findFPCamera: {fileID: 0}
+  _arrowPrefab: {fileID: 0}
+  _spearPrefab: {fileID: 0}
+  _arrowSpearStartPosition: {fileID: 0}
 --- !u!1 &7889991264159616070
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,14 +564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42be87b82d57ffb46b0ed7faa451ea58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepClip:
-  - {fileID: 8300000, guid: 2429399f1ca311945a12f37a32c14aed, type: 3}
-  - {fileID: 8300000, guid: f0761d807b3ae1d4598a50357cb58a5e, type: 3}
-  - {fileID: 8300000, guid: f27be18648dcceb46a46397f5c4c2e62, type: 3}
-  - {fileID: 8300000, guid: 3005916a05630f2439d211eaa6faba3d, type: 3}
+  _footstepClip: []
   volumeMin: 0
   volumeMax: 0
-  accumulatedDistance: 0
+  _accumulatedDistance: 0
   stepDistance: 0
 --- !u!1001 &664953727907650669
 PrefabInstance:
@@ -1772,11 +1768,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8937fb80e0484354195a76e2ac3dd28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  _anim: {fileID: 0}
   weaponAim: 2
-  muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 1216634003461764532}
-  reloadSound: {fileID: 0}
+  _muzzleFlash: {fileID: 0}
+  _shootSound: {fileID: 0}
+  _reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 0
   attackPoint: {fileID: 0}
@@ -2095,11 +2091,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8937fb80e0484354195a76e2ac3dd28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  _anim: {fileID: 0}
   weaponAim: 1
-  muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 0}
-  reloadSound: {fileID: 0}
+  _muzzleFlash: {fileID: 0}
+  _shootSound: {fileID: 0}
+  _reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 2
   attackPoint: {fileID: 0}
@@ -2510,11 +2506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8937fb80e0484354195a76e2ac3dd28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  _anim: {fileID: 0}
   weaponAim: 2
-  muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 6730432760956610846}
-  reloadSound: {fileID: 0}
+  _muzzleFlash: {fileID: 0}
+  _shootSound: {fileID: 0}
+  _reloadSound: {fileID: 0}
   fireType: 1
   bulletType: 0
   attackPoint: {fileID: 0}
@@ -2929,11 +2925,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8937fb80e0484354195a76e2ac3dd28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  _anim: {fileID: 0}
   weaponAim: 1
-  muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 0}
-  reloadSound: {fileID: 0}
+  _muzzleFlash: {fileID: 0}
+  _shootSound: {fileID: 0}
+  _reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 1
   attackPoint: {fileID: 0}
@@ -3452,11 +3448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8937fb80e0484354195a76e2ac3dd28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  _anim: {fileID: 0}
   weaponAim: 2
-  muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 4478384077086675308}
-  reloadSound: {fileID: 8200770517624349838}
+  _muzzleFlash: {fileID: 0}
+  _shootSound: {fileID: 0}
+  _reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 0
   attackPoint: {fileID: 0}
@@ -3847,11 +3843,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8937fb80e0484354195a76e2ac3dd28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  _anim: {fileID: 0}
   weaponAim: 0
-  muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 0}
-  reloadSound: {fileID: 0}
+  _muzzleFlash: {fileID: 0}
+  _shootSound: {fileID: 0}
+  _reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 3
   attackPoint: {fileID: 0}

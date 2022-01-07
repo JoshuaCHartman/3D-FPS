@@ -7,16 +7,16 @@ using Random = UnityEngine.Random;
 public class PlayerFootsteps : MonoBehaviour
 
 {
-    private AudioSource footstepSound;
+    private AudioSource _footstepSound;
 
-    [SerializeField] private AudioClip[] footstepClip; // array of clips, current length 4
+    [SerializeField] private AudioClip[] _footstepClip; // array of clips, current length 4
 
-    private CharacterController characterController; // determine whether on ground/ moving to play correct sounds
+    private CharacterController _characterController; // determine whether on ground/ moving to play correct sounds
 
     /*[HideInInspector]*/
     public float volumeMin, volumeMax;
 
-    [SerializeField] private float accumulatedDistance; //how far move before play sound
+    [SerializeField] private float _accumulatedDistance; //how far move before play sound
     
     /*[HideInInspector]*/
     public float stepDistance;
@@ -26,8 +26,8 @@ public class PlayerFootsteps : MonoBehaviour
     void Awake()
     {
         // set references to game objects
-        footstepSound = GetComponent<AudioSource>();
-        characterController = GetComponentInParent<CharacterController>(); // audio script attached to child. must move up the hierarchy to get character controller.
+        _footstepSound = GetComponent<AudioSource>();
+        _characterController = GetComponentInParent<CharacterController>(); // audio script attached to child. must move up the hierarchy to get character controller.
 
     }
 
@@ -39,33 +39,33 @@ public class PlayerFootsteps : MonoBehaviour
 
     void CheckToPlayFootstepSound()
     {
-        if (!characterController.isGrounded)
+        if (!_characterController.isGrounded)
             return;
 
-        if (characterController.velocity.sqrMagnitude > 0) // if any value of the vector3 (x,y,z) >0
+        if (_characterController.velocity.sqrMagnitude > 0) // if any value of the vector3 (x,y,z) >0
         {
-            //accumulatedDistance = how far to move (step,walk,sprint,moving crouch) until play step sound
-            accumulatedDistance += (Time.deltaTime);
+            //_accumulatedDistance = how far to move (step,walk,sprint,moving crouch) until play step sound
+            _accumulatedDistance += (Time.deltaTime);
 
-            if (accumulatedDistance > stepDistance)
+            if (_accumulatedDistance > stepDistance)
             {
                 //AudioClip randomClip;
 
-                //randomClip = footstepClip[Random.Range(0, footstepClip.Length)];
-                //footstepSound.clip = randomClip;
+                //randomClip = _footstepClip[Random.Range(0, _footstepClip.Length)];
+                //_footstepSound.clip = randomClip;
 
-                footstepSound.volume = UnityEngine.Random.Range(volumeMin, volumeMax);
-                footstepSound.clip = footstepClip[Random.Range(0, footstepClip.Length)]; // random range selection to pick clip in the array. Int range is incluse of x, exclusive of y. Float is inclusive
+                _footstepSound.volume = UnityEngine.Random.Range(volumeMin, volumeMax);
+                _footstepSound.clip = _footstepClip[Random.Range(0, _footstepClip.Length)]; // random range selection to pick clip in the array. Int range is incluse of x, exclusive of y. Float is inclusive
 
-                footstepSound.Play();
+                _footstepSound.Play();
 
-                accumulatedDistance = 0f;
+                _accumulatedDistance = 0f;
 
             }
         }
         else
         {
-            accumulatedDistance = 0f;
+            _accumulatedDistance = 0f;
         }
         
 

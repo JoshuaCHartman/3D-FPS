@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyGravity()
     {
-        //if (characterController.isGrounded)
+        //if (_characterController.isGrounded)
         //{
             verticalVelocity -= gravity * Time.deltaTime; // apply gravity so player remains planted and does not bounce/fall/float
 

@@ -10,13 +10,13 @@ public class WeaponHandler : MonoBehaviour
 {
     // Weapon ANIMATIONS & SOUNDS - Script component is ON EACH WEAPON
 
-    [SerializeField] private Animator anim;
+    [SerializeField] private Animator _anim;
 
     public WeaponAim weaponAim;
 
-    [SerializeField] private GameObject muzzleFlash;
+    [SerializeField] private GameObject _muzzleFlash;
 
-    [SerializeField] private AudioSource shootSound, reloadSound;
+    [SerializeField] private AudioSource _shootSound, _reloadSound;
 
     public WeaponFireType fireType;
     public WeaponBulletType bulletType;
@@ -24,31 +24,31 @@ public class WeaponHandler : MonoBehaviour
 
     void Awake()
     {
-        anim = GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
     }
     public void ShootAnimation()
     {
-        anim.SetTrigger(AnimationTags.SHOOT_TRIGGER); // from animation controller / animator / state machines
+        _anim.SetTrigger(AnimationTags.SHOOT_TRIGGER); // from animation controller / animator / state machines
     }
     public void Aim(bool canAim)
     {
-        anim.SetBool(AnimationTags.AIM_PARAMETER, canAim);
+        _anim.SetBool(AnimationTags.AIM_PARAMETER, canAim);
     }
     void TurnOnMuzzleFlash()
     {
-        muzzleFlash.SetActive(true);
+        _muzzleFlash.SetActive(true);
     }
     void TurnOffMuzzleFlash()
     {
-        muzzleFlash.SetActive(false);
+        _muzzleFlash.SetActive(false);
     }
     void PlayShootSound()
     {
-        shootSound.Play();
+        _shootSound.Play();
     }
     void PlayReloadSound()
     {
-        reloadSound.Play();
+        _reloadSound.Play();
     }
     void TurnOnAttackPoint()
     {
