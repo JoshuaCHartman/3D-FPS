@@ -22,6 +22,11 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]  private GameObject findFPCamera; // showing in inspector to verify data flow : is present
 
+    // spear & arrow
+    [SerializeField] private GameObject arrowPrefab, spearPrefab;
+    [SerializeField] private Transform arrowSpearStartPosition;
+
+
 
     private void Awake()
     {
@@ -102,10 +107,12 @@ public class PlayerAttack : MonoBehaviour
                         if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.ARROW)
                         {
                             // shoot arrow
+                            FireArrowOrSpear(true);
                         }
                         else if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.SPEAR)
                         {
                             // throw spear
+                            FireArrowOrSpear(false);
                         }
                     }
 
@@ -155,5 +162,25 @@ public class PlayerAttack : MonoBehaviour
     private void BulletFired()
     {
         
+    }
+
+    void FireArrowOrSpear(bool fireArrow)
+    {
+        // true fire ARROW
+        if (fireArrow)
+        {
+            GameObject arrow = Instantiate(arrowPrefab);
+            arrow.transform.position = arrowSpearStartPosition.position;
+
+            arrow.GetComponent<ArrowSpearScript>().Launch(mainCam);
+        }
+        // false fire SPEAR
+        else
+        {
+            GameObject spear = Instantiate(spearPrefab);
+            spear.transform.position = arrowSpearStartPosition.position;
+
+            spear.GetComponent<ArrowSpearScript>().Launch(mainCam);
+        }
     }
 }
