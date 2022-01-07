@@ -70,6 +70,8 @@ public class PlayerAttack : MonoBehaviour
                 nextTimeToFire = Time.time + 1f / fireRate;
 
                 weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
+
+                BulletFired();
             }
             // below test mouse button fire
             //if (Input.GetMouseButton(0))
@@ -161,7 +163,14 @@ public class PlayerAttack : MonoBehaviour
 
     private void BulletFired()
     {
-        
+        // raycast is an infinite line. Hit will old info of what it hits, and can use the contacted gameObjects.
+        RaycastHit hit;
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit)) 
+            // out causes data attached to the raycast hit to be passed to the RayCastHit and used. Passes info out.
+        {
+            print("YOU HIT : " + hit.transform.gameObject.name); // prints to log name of target (if hit)
+        }
+
     }
 
     void FireArrowOrSpear(bool fireArrow)

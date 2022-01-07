@@ -41,7 +41,8 @@ public class ArrowSpearScript : MonoBehaviour
         //myBody.velocity = Camera.main.transform.forward * speed;
         myBody.velocity = mainCamera.transform.forward * speed; // move foward from main camera
         // velocity adds forwards momentum faster than using AddForce physics method
-        transform.LookAt(transform.position + myBody.velocity); // rotates gameObject to align correctly forward & then move it with the velocity on rigidbody
+        transform.LookAt(transform.position + myBody.velocity); // rotates gameObject to align correctly forward
+                                                                // & then move it with the velocity on rigidbody
 
     }
 
