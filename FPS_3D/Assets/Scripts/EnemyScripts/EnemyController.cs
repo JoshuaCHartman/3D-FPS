@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public enum EnemyState { PATROL, CHASE, ATTACK}
+public enum EnemyState { PATROL, CHASE, ATTACK }
 
 public class EnemyController : MonoBehaviour
 {
@@ -57,7 +57,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_enemyState == EnemyState.PATROL)
+        if (_enemyState == EnemyState.PATROL)
         {
             Patrol();
         }
@@ -72,6 +72,7 @@ public class EnemyController : MonoBehaviour
     }
     void Patrol()
     {
+        // start moving
         _navAgent.isStopped = false; // start the navagent
         _navAgent.speed = walkSpeed;
 
@@ -92,9 +93,13 @@ public class EnemyController : MonoBehaviour
             _enemyAnim.Walk(false);
         }
 
-        // test chase distance = enemy position - player position
+        // test chase distance <= enemy position - player position 
         if (Vector3.Distance(transform.position, _targetTF.position) <= chaseDistance)
         {
+            _enemyAnim.Walk(false); // turn off walk animation
+            _enemyState = EnemyState.CHASE;
+
+            // Play AUDIO for enemy spotted player
 
         }
 
@@ -112,7 +117,7 @@ public class EnemyController : MonoBehaviour
         // check if _randomDirection is navigable / inside map bounds, and store point inside bounds info via out navmeshHit. only returns a naviagble point
         NavMeshHit navmeshHit;
         NavMesh.SamplePosition(_randomDirection, out navmeshHit, _randomRadius, -1); // -1 = check on all layers (in case a mask is applied)
-        
+
         // set nav agent's destination
         _navAgent.SetDestination(navmeshHit.position);
 
@@ -121,13 +126,83 @@ public class EnemyController : MonoBehaviour
 
     void Chase()
     {
-        throw new NotImplementedException();
+        // start moving
+        _navAgent.isStopped = false;
+        _navAgent.speed = runSpeed;
+        // target / player position set as endpoint ("chasing" after player)
+        _navAgent.SetDestination(_targetTF.position);
+
+        // run to player
+        if (_navAgent.velocity.sqrMagnitude > 0) // if enemy moving
+        {
+            _enemyAnim.Run(true);
+        }
+        else
+        {
+            _enemyAnim.Run(false);
+        }
+
+        // check distance for attack
+        if (Vector3.Distance(transform.position, _targetTF.position) <= attackDistance)
+        {
+            // within distance
+
+            // stop run/walk animation & change state
+            _enemyAnim.Run(false);
+            _enemyAnim.Walk(false);
+            _enemyState = EnemyState.ATTACK;
+
+            // reset chase distance to stored value, if changed after player attack enemy at range
+            if (chaseDistance != _currentChaseDistance)
+            {
+                chaseDistance = _currentChaseDistance;
+            }
+        }
+        // player runs out of range
+        else if (Vector3.Distance(transform.position, _targetTF.position) > chaseDistance)
+        {
+            // outside distance
+
+            // stop running & reset state to patrol
+            _enemyAnim.Run(false);
+            _enemyState = EnemyState.PATROL;
+            //reset patrol timer for new position immediately
+            _patrolTimer = patrolForThisTime;
+            // reset chase distance to stored value, if changed after player attack enemy at range
+            if (chaseDistance != _currentChaseDistance)
+            {
+                chaseDistance = _currentChaseDistance;
+            }
+        }
     }
 
     void Attack()
     {
-        throw new NotImplementedException();
-    }
+        // stop moving
+        _navAgent.velocity = Vector3.zero;
+        _navAgent.isStopped = (true);
 
-   
+        // attack timer, for pauses in between attacks
+        _attackTimer += Time.deltaTime;
+        if (_attackTimer > waitBeforeAttack)
+        {
+            // attack animation
+            _enemyAnim.Attack();
+            // reset attack timer
+            _attackTimer = 0f;
+
+            // attack AUDIO
+
+        }
+        // test player distance, if player runs away : enemy position - player position > attack distanc + chaseAfterAttackDistance
+        if (Vector3.Distance(transform.position, _targetTF.position) > (attackDistance + chaseAfterAttackDistance))
+        {
+            // gives player space buffer so chase does not start right away
+
+            _enemyState = EnemyState.CHASE;
+        }
+
+
+    }
 }
+
