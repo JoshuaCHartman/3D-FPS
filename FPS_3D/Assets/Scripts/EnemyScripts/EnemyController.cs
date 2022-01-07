@@ -197,11 +197,9 @@ public class EnemyController : MonoBehaviour
         // test player distance, if player runs away : enemy position - player position > attack distanc + chaseAfterAttackDistance
         if (Vector3.Distance(transform.position, _targetTF.position) > (attackDistance + chaseAfterAttackDistance))
         {
-            // gives player space buffer so chase does not start right away
-
+            // chase after attack distance gives player space buffer so chase does not start right away
             _enemyState = EnemyState.CHASE;
         }
-
 
     }
 }
