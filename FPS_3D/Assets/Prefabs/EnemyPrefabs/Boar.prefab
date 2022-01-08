@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 987064972201182001}
   - component: {fileID: 2960766268363812691}
   - component: {fileID: 7166126632869999776}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boar
   m_TagString: Enemy
   m_Icon: {fileID: 0}

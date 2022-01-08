@@ -34,27 +34,27 @@ public class WeaponHandler : MonoBehaviour
     {
         _anim.SetBool(AnimationTags.AIM_PARAMETER, canAim);
     }
-    void TurnOnMuzzleFlash()
+    public void TurnOnMuzzleFlash()
     {
         _muzzleFlash.SetActive(true);
     }
-    void TurnOffMuzzleFlash()
+    public void TurnOffMuzzleFlash()
     {
         _muzzleFlash.SetActive(false);
     }
-    void PlayShootSound()
+    public void PlayShootSound()
     {
         _shootSound.Play();
     }
-    void PlayReloadSound()
+    public void PlayReloadSound()
     {
         _reloadSound.Play();
     }
-    void TurnOnAttackPoint()
+    public void TurnOnAttackPoint()
     {
         attackPoint.SetActive(true);
     }
-    void TurnOffAttackPoint()
+    public void TurnOffAttackPoint()
     {
         if (attackPoint.activeInHierarchy)
         {
