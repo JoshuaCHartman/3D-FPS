@@ -17,6 +17,8 @@ public class HealthScript : MonoBehaviour
     public bool isPlayer, isBoar, isCannibal;
     private bool _isDead;
 
+    private EnemyAudio _enemyAudio;
+
     private void Awake()
     {
         // references
@@ -27,6 +29,7 @@ public class HealthScript : MonoBehaviour
             _navAgent = GetComponent<NavMeshAgent>();
 
             // get AUDIO enemy
+            _enemyAudio = GetComponentInChildren<EnemyAudio>();
         }
         if (isPlayer)
         {
@@ -83,9 +86,10 @@ public class HealthScript : MonoBehaviour
         if (isCannibal)
         {
             GetComponent<Animator>().enabled = false;
-            GetComponent<BoxCollider>().isTrigger = false;
+            //GetComponent<BoxCollider>().isTrigger = false;
             // no death animation
-            GetComponent<Rigidbody>().AddTorque(-transform.forward * 50f);
+            // not working add torque
+            GetComponent<Rigidbody>().AddRelativeTorque(-transform.forward * 50f);
 
             //turn off enemy
             _enemyController.enabled = false;
@@ -93,6 +97,7 @@ public class HealthScript : MonoBehaviour
             _enemyAnimator.enabled = false;
 
             // start coroutine - sounds
+            StartCoroutine(DeathSound());
 
             // enemy manager = spawn an enemy
 
@@ -107,6 +112,7 @@ public class HealthScript : MonoBehaviour
             _enemyAnimator.Dead();
 
             // start coroutine - sounds
+            StartCoroutine(DeathSound());
 
             // enemy manager = spawn an enemy
         }
@@ -118,6 +124,7 @@ public class HealthScript : MonoBehaviour
 
             for (int i =0; i < enemies.Length; i++)
             {
+                // end the enemy controller or the enemy will continue after respawned new PLAYER
                 enemies[i].GetComponent<EnemyController>().enabled = false;
             }
 
@@ -143,9 +150,13 @@ public class HealthScript : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene"); // restarts scene - no exit /start / load screen currently
     }
-
     void TurnOffGameObject()
     {
         gameObject.SetActive(false);
+    }
+    IEnumerator DeathSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        _enemyAudio.PlayDeathSound();
     }
 }

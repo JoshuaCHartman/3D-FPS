@@ -470,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8883552421144168786, guid: 6c570253e9d230a418f2f345f2f403dd, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8883552421144168786, guid: 6c570253e9d230a418f2f345f2f403dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -582,13 +582,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boar
       objectReference: {fileID: 0}
-    - target: {fileID: 4139581317666369367, guid: ff8132e1298485741a63628c94849092, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4139581317666796407, guid: ff8132e1298485741a63628c94849092, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4139581317666796407, guid: ff8132e1298485741a63628c94849092, type: 3}
       propertyPath: m_LocalPosition.x

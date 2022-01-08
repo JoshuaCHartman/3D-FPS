@@ -28,9 +28,11 @@ public class EnemyController : MonoBehaviour
     public float waitBeforeAttack;
     private float _attackTimer;
 
-    private Transform _targetTF;
+    private Transform _targetTF; // for enemy navmeshagent to target player's location
 
-    public GameObject attackPoint;
+    public GameObject attackPoint; // serves for melee combat. contains attack script
+
+    private EnemyAudio _enemyAudio; 
 
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class EnemyController : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
 
         _targetTF = GameObject.FindWithTag(Tags.PLAYER_TAG).transform; // get players coordinates
+
+        _enemyAudio = GetComponentInChildren<EnemyAudio>();
 
     }
 
@@ -101,7 +105,8 @@ public class EnemyController : MonoBehaviour
             _enemyAnim.Walk(false); // turn off walk animation
             _enemyState = EnemyState.CHASE;
 
-            // Play AUDIO for enemy spotted player
+            // Play AUDIO after spotted / attacked by player at range
+            _enemyAudio.PlayScreamSound();
 
         }
 
@@ -194,6 +199,7 @@ public class EnemyController : MonoBehaviour
             _attackTimer = 0f;
 
             // attack AUDIO
+            _enemyAudio.PlayAttackSound();
 
         }
         // test player distance, if player runs away : enemy position - player position > attack distanc + chaseAfterAttackDistance
