@@ -472,6 +472,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8883552420740974126, guid: 6c570253e9d230a418f2f345f2f403dd, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8883552421144139122, guid: 6c570253e9d230a418f2f345f2f403dd, type: 3}
       propertyPath: m_Name
       value: Cannibal
@@ -586,6 +590,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1652305261860099118, guid: ff8132e1298485741a63628c94849092, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4139581317666369367, guid: ff8132e1298485741a63628c94849092, type: 3}
       propertyPath: m_Name
       value: Boar
