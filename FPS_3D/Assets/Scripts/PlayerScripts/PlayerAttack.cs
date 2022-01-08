@@ -172,8 +172,10 @@ public class PlayerAttack : MonoBehaviour
         //    print("YOU HIT : " + hit.transform.gameObject.name); // prints to log name of target (if hit)
         //}
         {
+            
             if (hit.transform.tag == Tags.ENEMY_TAG)
             {
+                print("YOU HIT : " + hit.transform.gameObject.name + " Damage : " + GetComponent<HealthScript>().damageDealt); ;
                 hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
             }
         }

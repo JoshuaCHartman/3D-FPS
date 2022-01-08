@@ -180,7 +180,7 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
-        // stop moving
+        // stop moving / stop navagent
         _navAgent.velocity = Vector3.zero;
         _navAgent.isStopped = (true);
 

@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fd2d3361cbd9c44910c8b81eecc3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 25
   radius: 1
   layerMask:
     serializedVersion: 2
@@ -1929,6 +1929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  damageDealt: 0
   isPlayer: 0
   isBoar: 0
   isCannibal: 1
