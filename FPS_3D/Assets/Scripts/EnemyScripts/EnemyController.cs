@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     private Transform _targetTF;
 
+    public GameObject attackPoint;
+
     private void Awake()
     {
         // get references
@@ -201,6 +203,18 @@ public class EnemyController : MonoBehaviour
             _enemyState = EnemyState.CHASE;
         }
 
+    }
+    // attackpoint methods copied from player attack script
+    public void TurnOnAttackPoint()
+    {
+        attackPoint.SetActive(true);
+    }
+    public void TurnOffAttackPoint()
+    {
+        if (attackPoint.activeInHierarchy)
+        {
+            attackPoint.SetActive(false);
+        }
     }
 }
 

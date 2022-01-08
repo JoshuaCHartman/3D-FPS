@@ -50,6 +50,7 @@ public class WeaponHandler : MonoBehaviour
     {
         _reloadSound.Play();
     }
+    // the attackpoint methods are copied to EnemyController 
     public void TurnOnAttackPoint()
     {
         attackPoint.SetActive(true);

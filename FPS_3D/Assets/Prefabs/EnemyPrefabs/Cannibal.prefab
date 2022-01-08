@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3494335151771153463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5993710658612626540}
+  - component: {fileID: 5175409682681507886}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5993710658612626540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494335151771153463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8883552421144168812}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5175409682681507886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494335151771153463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fd2d3361cbd9c44910c8b81eecc3be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  radius: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8883552421144138960
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +504,8 @@ Transform:
   m_LocalRotation: {x: 0.0032726536, y: -0.00008484928, z: 0.04209981, w: 0.9991081}
   m_LocalPosition: {x: -0.027379123, y: 0.000000012558885, z: 0.0000005326632}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.99999994}
-  m_Children: []
+  m_Children:
+  - {fileID: 5993710658612626540}
   m_Father: {fileID: 8883552421144168808}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1732,7 +1781,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8883552421144168786}
   - component: {fileID: 8883552421134657210}
-  - component: {fileID: 2351299429646160209}
   - component: {fileID: 8883552420740974126}
   - component: {fileID: 8883552420740974127}
   - component: {fileID: 8883552420740974112}
@@ -1782,20 +1830,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &2351299429646160209
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8883552421144139122}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.07, z: 0}
 --- !u!54 &8883552420740974126
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1808,7 +1842,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1880,6 +1914,7 @@ MonoBehaviour:
   patrolRadiusMax: 60
   patrolForThisTime: 15
   waitBeforeAttack: 0
+  attackPoint: {fileID: 3494335151771153463}
 --- !u!1 &8883552421144139124
 GameObject:
   m_ObjectHideFlags: 0
