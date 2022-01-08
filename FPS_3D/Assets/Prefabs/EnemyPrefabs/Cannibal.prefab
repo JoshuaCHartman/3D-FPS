@@ -1786,6 +1786,7 @@ GameObject:
   - component: {fileID: 8883552420740974112}
   - component: {fileID: 37237090866065480}
   - component: {fileID: 1103834917032677473}
+  - component: {fileID: 4030494527011422924}
   m_Layer: 7
   m_Name: Cannibal
   m_TagString: Enemy
@@ -1915,6 +1916,22 @@ MonoBehaviour:
   patrolForThisTime: 15
   waitBeforeAttack: 0
   attackPoint: {fileID: 3494335151771153463}
+--- !u!114 &4030494527011422924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883552421144139122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805e30d85c10ab14fbd7d86e01bef3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  isPlayer: 0
+  isBoar: 0
+  isCannibal: 1
 --- !u!1 &8883552421144139124
 GameObject:
   m_ObjectHideFlags: 0

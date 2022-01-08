@@ -205,16 +205,20 @@ public class EnemyController : MonoBehaviour
 
     }
     // attackpoint methods copied from player attack script
-    public void TurnOnAttackPoint()
+    void TurnOnAttackPoint()
     {
         attackPoint.SetActive(true);
     }
-    public void TurnOffAttackPoint()
+    void TurnOffAttackPoint()
     {
         if (attackPoint.activeInHierarchy)
         {
             attackPoint.SetActive(false);
         }
     }
+
+    // enemy state method - must be accessible / public
+    public EnemyState EnemyState { get; set; }
+
 }
 

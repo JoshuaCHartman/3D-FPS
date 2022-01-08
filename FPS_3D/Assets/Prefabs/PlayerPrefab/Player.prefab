@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 1780505496}
   - component: {fileID: 7011660180975483595}
   - component: {fileID: 385287372}
+  - component: {fileID: 7549713437920257333}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -472,6 +473,22 @@ MonoBehaviour:
   _arrowPrefab: {fileID: 0}
   _spearPrefab: {fileID: 0}
   _arrowSpearStartPosition: {fileID: 0}
+--- !u!114 &7549713437920257333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760045868186991119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805e30d85c10ab14fbd7d86e01bef3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  isPlayer: 1
+  isBoar: 0
+  isCannibal: 0
 --- !u!1 &7889991264159616070
 GameObject:
   m_ObjectHideFlags: 0

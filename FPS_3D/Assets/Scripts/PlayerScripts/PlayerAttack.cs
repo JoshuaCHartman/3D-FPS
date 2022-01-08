@@ -38,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
         
         _findFPCamera = GameObject.Find(Tags.ZOOM_CAMERA);
         _zoomCameraAnim = _findFPCamera.GetComponent<Animator>();
+        // avoid gameobject.find() - slow. if must use, use in awake/start  not update
 
         _crosshair = GameObject.FindGameObjectWithTag(Tags.CROSSHAIR);
 
@@ -165,10 +166,16 @@ public class PlayerAttack : MonoBehaviour
     {
         // raycast is an infinite line. Hit will old info of what it hits, and can use the contacted gameObjects.
         RaycastHit hit;
-        if (Physics.Raycast(_mainCam.transform.position, _mainCam.transform.forward, out hit)) 
-            // out causes data attached to the raycast hit to be passed to the RayCastHit and used. Passes info out.
+        if (Physics.Raycast(_mainCam.transform.position, _mainCam.transform.forward, out hit))
+        // out causes data attached to the raycast hit to be passed to the RayCastHit and used. Passes info out.
+        //{
+        //    print("YOU HIT : " + hit.transform.gameObject.name); // prints to log name of target (if hit)
+        //}
         {
-            print("YOU HIT : " + hit.transform.gameObject.name); // prints to log name of target (if hit)
+            if (hit.transform.tag == Tags.ENEMY_TAG)
+            {
+                hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
+            }
         }
 
     }
