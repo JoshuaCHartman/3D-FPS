@@ -29,6 +29,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     private PlayerStatistics _playerStatistics;
     private float _sprintValue = 100f;
     public float sprintThreshold = 10f;
+    private CharacterController _characterController; // to test if moving
 
     void Awake() // get references
     {
@@ -39,6 +40,8 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         _playerFootsteps = GetComponentInChildren<PlayerFootsteps>(); // playerfootsteps script in playeraudio object
 
         _playerStatistics = GetComponent<PlayerStatistics>();
+
+        _characterController = GetComponent<CharacterController>();
     }
 
     void Start()
@@ -97,6 +100,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && !_isCrouching)
             {
+
                 _playerMovement.speed = sprintSpeed;
                 _playerFootsteps.stepDistance = _sprintStepDistance;
                 _playerFootsteps.volumeMin = _sprintVolume; // sound louder when sprinting
@@ -111,22 +115,27 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             WalkStepDefault();
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && !_isCrouching) // checks anytime left shift is pressed
+        if (Input.GetKey(KeyCode.LeftShift) && !_isCrouching) // checks anytime left shift is pressed-
+                                                              // if checked during sprint function, would only check once when initiall pressed
         {
-            // lose stamina at rate determined by sprintThreshold
-            _sprintValue -= Time.deltaTime * sprintThreshold;
-
-            // Check level & ensure _sprintvalue does not go below 0
-            if (_sprintValue <= 0)
+            // test if moving & if so apply stamina decrease
+            if (_characterController.velocity.sqrMagnitude > 0) // if any value of the vector3 (x,y,z) >0 Player is moving
             {
-                _sprintValue = 0; 
+                // lose stamina at rate determined by sprintThreshold
+                _sprintValue -= Time.deltaTime * sprintThreshold;
 
-                // reset sprint speed & sound
-                _playerMovement.speed = moveSpeed;
-                WalkStepDefault();
+                // Check level & ensure _sprintvalue does not go below 0
+                if (_sprintValue <= 0)
+                {
+                    _sprintValue = 0;
+
+                    // reset sprint speed & sound
+                    _playerMovement.speed = moveSpeed;
+                    WalkStepDefault();
+                }
+                // display decrease stamina on bar
+                _playerStatistics.DisplayStaminaStats(_sprintValue);
             }
-            // display decrease stamina on bar
-            _playerStatistics.DisplayStaminaStats(_sprintValue);
         }
         else
         {
