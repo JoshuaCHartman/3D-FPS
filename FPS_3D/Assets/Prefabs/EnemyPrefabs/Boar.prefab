@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fd2d3361cbd9c44910c8b81eecc3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 5
   radius: 1
   layerMask:
     serializedVersion: 2
@@ -1075,8 +1075,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4139581317666796407}
   - component: {fileID: 4139581317673753729}
-  - component: {fileID: 496903071464864242}
   - component: {fileID: 1652305261860099118}
+  - component: {fileID: 496903071464864242}
   - component: {fileID: 987064972201182001}
   - component: {fileID: 2960766268363812691}
   - component: {fileID: 7166126632869999776}
@@ -1125,19 +1125,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &496903071464864242
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4139581317666369367}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.61, y: 0.98, z: 1.42}
-  m_Center: {x: 0, y: 0.48, z: 0.41}
 --- !u!54 &1652305261860099118
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1154,6 +1141,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &496903071464864242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139581317666369367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61, y: 0.98, z: 1.42}
+  m_Center: {x: 0, y: 0.48, z: 0.41}
 --- !u!195 &987064972201182001
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1222,11 +1222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805e30d85c10ab14fbd7d86e01bef3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   damageDealt: 0
   isPlayer: 0
   isBoar: 1
   isCannibal: 0
+  health: 100
 --- !u!65 &2127660419
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1236,7 +1236,7 @@ BoxCollider:
   m_GameObject: {fileID: 4139581317666369367}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.61, y: 0.98, z: 1.42}
   m_Center: {x: 0, y: 0.48, z: 0.41}

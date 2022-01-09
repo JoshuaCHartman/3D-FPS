@@ -10,14 +10,17 @@ public class HealthScript : MonoBehaviour
     private NavMeshAgent _navAgent;
     private EnemyController _enemyController;
 
-    public float health = 100f;
-
     public float damageDealt; // add to display damage amountin console / testing
 
     public bool isPlayer, isBoar, isCannibal;
     private bool _isDead;
 
     private EnemyAudio _enemyAudio;
+
+    // health and UI
+    public float health = 100f;
+    private PlayerStatistics _playerStatistics;
+
 
     private void Awake()
     {
@@ -33,7 +36,7 @@ public class HealthScript : MonoBehaviour
         }
         if (isPlayer)
         {
-            // player stats
+            _playerStatistics = GetComponent<PlayerStatistics>();
         }
     }
      public float ApplyDamage(float damage)
@@ -51,6 +54,8 @@ public class HealthScript : MonoBehaviour
         if (isPlayer)
         {
             // health total in UI
+            _playerStatistics.DisplayHealthStats(health); // pass in new health total after damage taken. will adjust 
+                                                            // fill % on health bar as new health / 100
             
         }
 
@@ -154,6 +159,7 @@ public class HealthScript : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    // Coroutine - wait for seconds
     IEnumerator DeathSound()
     {
         yield return new WaitForSeconds(0.3f);
