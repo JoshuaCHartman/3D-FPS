@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour 
 {
     public static EnemyManager instance;
 
@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
     public Transform[] cannibalSpawnPointsTF, boarSpawnPointsTF; // spawn ppoint arrays (TF denotes transfrom)
 
     [SerializeField] private int _cannibalEnemyCount, _boarEnemyCount; // how many enemies in game
-    private int _initialCannibalCount, _initialBoarCount; // initial stored enemy totals
+    [SerializeField] private int _initialCannibalCount, _initialBoarCount; // initial stored enemy totals
     public float waitBeforeSpawnEnemiesTime = 10f;
 
     
@@ -80,11 +80,12 @@ public class EnemyManager : MonoBehaviour
         StartCoroutine("CheckToSpawnEnemies"); //nested - will results in constant enemy spawning until player dies
     }
 
-    public void EnemyDied(bool cannibal)
+    public void EnemyDied(bool cannibal) // from HealthScript when enemy dies
     {
         if (cannibal)
         {
             _cannibalEnemyCount++;
+
             if (_cannibalEnemyCount > _initialCannibalCount)
             {
                 _cannibalEnemyCount = _initialCannibalCount;
@@ -93,6 +94,7 @@ public class EnemyManager : MonoBehaviour
         else
         {
             _boarEnemyCount++;
+
             if (_boarEnemyCount > _initialBoarCount)
             {
                 _boarEnemyCount = _initialBoarCount;
@@ -106,6 +108,7 @@ public class EnemyManager : MonoBehaviour
         {
             instance = this;
         }
+        
     }
 
     public void StopSpawningEnemies() // trigger when player dies

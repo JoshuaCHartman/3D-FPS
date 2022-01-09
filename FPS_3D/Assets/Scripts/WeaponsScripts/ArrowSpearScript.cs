@@ -8,7 +8,7 @@ public class ArrowSpearScript : MonoBehaviour
 
     public float speed = 30f;
     public float deactivateTimer = 3f;
-    public float damage = 15f;
+    public float damage = 50f;
 
     private void Awake()
     {
@@ -33,7 +33,13 @@ public class ArrowSpearScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider target)
     {
-        // collision w/ enemy = deactivate
+        // collision w/ enemy = deactivate the arrow/spear
+        if (target.tag == Tags.ENEMY_TAG)
+        {
+            target.GetComponent<HealthScript>().ApplyDamage(damage);
+
+            gameObject.SetActive(false);
+        }
 
     }
     public void Launch(Camera mainCamera)

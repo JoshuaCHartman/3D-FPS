@@ -92,6 +92,7 @@ public class MouseLook : MonoBehaviour
         //                  interpolate between a&b by t Mathf.Lerp(a,b,t)
         //                  slowly goes from a to b value in time specified
         // makes "dizzyness" / "drunkeness" => decrease rollAngle to decrease or set to 0
+        // Currently not using
         
         currentRollAngle = 0f;
 

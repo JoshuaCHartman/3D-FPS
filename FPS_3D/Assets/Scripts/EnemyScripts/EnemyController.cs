@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
     void Patrol()
     {
         // start moving
-        _navAgent.isStopped = false; // start the navagent
+        _navAgent.isStopped = false; // start the navagentwww
         _navAgent.speed = walkSpeed;
 
         _patrolTimer += Time.deltaTime; // additive to patrol timer
@@ -109,8 +109,6 @@ public class EnemyController : MonoBehaviour
             _enemyAudio.PlayScreamSound();
 
         }
-
-
     }
 
     void SetNewRandomDestination()
