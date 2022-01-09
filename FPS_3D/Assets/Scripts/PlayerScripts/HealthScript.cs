@@ -104,7 +104,7 @@ public class HealthScript : MonoBehaviour
             // start coroutine - sounds
             StartCoroutine(DeathSound());
 
-            // enemy manager = spawn an enemy
+            EnemyManager.instance.EnemyDied(true); // true = cannibal died
 
         }
 
@@ -120,6 +120,7 @@ public class HealthScript : MonoBehaviour
             StartCoroutine(DeathSound());
 
             // enemy manager = spawn an enemy
+            EnemyManager.instance.EnemyDied(false); // false = boar died
         }
 
         if (isPlayer)
@@ -134,6 +135,7 @@ public class HealthScript : MonoBehaviour
             }
 
             // stop spawning in enemy manager
+            EnemyManager.instance.StopSpawningEnemies();
 
             // turn off player
             GetComponent<PlayerMovement>().enabled = false;

@@ -2086,11 +2086,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805e30d85c10ab14fbd7d86e01bef3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   damageDealt: 0
   isPlayer: 0
   isBoar: 0
   isCannibal: 1
+  health: 100
 --- !u!136 &1433489947
 CapsuleCollider:
   m_ObjectHideFlags: 0
