@@ -437,6 +437,7 @@ MonoBehaviour:
   sprintSpeed: 10
   moveSpeed: 5
   crouchSpeed: 2
+  sprintThreshold: 10
 --- !u!114 &7011660180975483595
 MonoBehaviour:
   m_ObjectHideFlags: 0
