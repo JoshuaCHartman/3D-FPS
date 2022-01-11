@@ -7,7 +7,7 @@ Created in Unity3D, with C# scripting in Visual Studio Community 2019.
 
 # Features / Principles :
 
- #OOP & Unity features -
+ # OOP & Unity features -
 - Singleton design used to create an EnemyManager script for spawning of enemies after destroyed by player, with coroutines and logic to limit number of spawned enemies.
 - Awake() loop used for references, Start() for setting indexes and starting values and states
  Code reused between player and enemies
